@@ -1,4 +1,5 @@
 ﻿printfile(path,quantity){
+ 	quantity += 0
 	MsgBox, 64, % "Printing Labels", % "You have selected to print `n`n" quantity " - " path " `n`nIf it is not your wish to print these labels, reload this script. `n`nIf you do want to print these labels, make sure you have " quantity " sheets of labels in the printer."
 	oWord := ComObjCreate("Word.Application") ; create MS Word object
 	oFile := oWord.Documents.Open(path) ; create new document
