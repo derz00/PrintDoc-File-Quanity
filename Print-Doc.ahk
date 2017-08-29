@@ -28,14 +28,14 @@ if errorlevel
 path := Clipboard ; gets the path of the copied file.
 Clipboard := previousClip
 previousClip := ""
-SplitPath, path,,,OutExt,
+SplitPath, path,,,OutExt
 if !(InStr(OutExt, "doc"))
 {
 	MsgBox, 48, Printing Labels, The file you selected is not a Word file. Try again.
 	return
 }
 
-printfile(path, (SubStr(A_ThisHotkey, 0, 1))+0)
+printfile(path, SubStr(A_ThisHotkey, 0, 1))
 return
 
 #Include printfile.ahk
