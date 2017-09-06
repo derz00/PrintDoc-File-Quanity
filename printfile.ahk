@@ -4,11 +4,8 @@
 	oWord := ComObjCreate("Word.Application") ; create MS Word object
 	oFile := oWord.Documents.Open(path) ; create new document
 	oWord.DisplayAlerts := 0 ; turns off alerts to avoid warnings like "margins too small" etc.
-	oFile.PrintOut( Copies:=quantity, Background:=false ) 
-	; Since the Word application is invisible, it makes no difference 
-	; if the printing is not in the background. Also, this ensures that
-	; the following lines do not try to close the application before it 
-	; is done printing. Which might not happen, too lazy to test.
+	oFile.PrintOut(0,,,,,,,NumCopies) ; first parameter := 0 to disable background printing, so that the code 
+				          ; below doesn't try to exit before the print job is done.
 	oWord.DisplayAlerts := -1 ; turns them back on
 	oFile.Close ; close the file
 	oWord.Quit  ; close the application
